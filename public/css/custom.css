@@ -1,0 +1,47 @@
+.item-price {
+    color: #0d0c22;
+    font-weight: bold;
+    font-size: 28px;
+    padding-right: 10px;
+}
+
+.bd-callout {
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e9ecef;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+    width: 100%;
+    background-color: #F8F9FA;
+}
+.bd-callout-info {
+    border-left-color: #c7c7c7;
+}
+.horizontal-scrollable > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-xs-4 {
+    display: inline-block;
+    float: none;
+}
+/* Decorations */
+
+.col-xs-4 {
+    color: white;
+    font-size: 24px;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+.col-xs-4:nth-child(2n+1) {
+    background: green;
+}
+
+.col-xs-4:nth-child(2n+2) {
+    background: black;
+}
+

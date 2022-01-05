@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function marketplace()
     {
         $items = Item::whereCheck('1')->wherePublished('1')->get();
-        return view('item.marketplace', compact('items'));
+        return view('marketplace', compact('items'));
     }
 
     public function index() {

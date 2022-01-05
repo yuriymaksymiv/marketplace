@@ -12,12 +12,30 @@ use App\Models\Region;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class Ac_ItemController extends Controller
 {
     public function index () {
         $items = Item::whereUser_id(Auth::user()->id)->get();
+        return view('account.item.index', compact('items'));
+    }
+
+    public function sort ($sort) {
+
+        if ($sort === "news") {
+            $items = Item::whereUser_id(Auth::user()->id)->orderBy('created_at', 'asc')->get();
+        }elseif ($sort === "old") {
+            $items = Item::whereUser_id(Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        }elseif ($sort === "active") {
+            $items = Item::whereUser_id(Auth::user()->id)->whereStatus('active')->get();
+        }elseif ($sort === "pending") {
+            $items = Item::whereUser_id(Auth::user()->id)->whereStatus('pending')->get();
+        }elseif ($sort === "disable") {
+            $items = Item::whereUser_id(Auth::user()->id)->whereStatus('disable')->get();
+        }
+
         return view('account.item.index', compact('items'));
     }
 
@@ -32,6 +50,12 @@ class Ac_ItemController extends Controller
 
     public function store (Request $request) {
 
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'image' => 'required|image',
+        ]);
+
         $item = new Item();
 
         $item->title = $request->title;
@@ -43,10 +67,25 @@ class Ac_ItemController extends Controller
         $item->region_id = $request->region_id;
         $item->city_id = $request->city_id;
         $item->type = $request->type;
-        $item->status = 'On Rewiew';
+        $item->status = 'Pending';
         $item->category_id = $request->category_id;
         $item->sort_at = Carbon::now();
         $item->ends_at = Carbon::now()->addMonth(1);
+
+        $item->prepayment = $request->prepayment;
+        $item->cash_on_delivery = $request->cash_on_delivery;
+        $item->self_pickup = $request->self_pickup;
+        $item->city_delivery = $request->city_delivery;
+        $item->country_delivery = $request->country_delivery;
+        $item->int_delivery = $request->int_delivery;
+
+        if (isset($item->prepayment)) { $item->prepayment = 1; }else{ $item->prepayment = 0; }
+        if (isset($item->cash_on_delivery)) { $item->cash_on_delivery = 1; }else{ $item->cash_on_delivery = 0; }
+        if (isset($item->self_pickup)) { $item->self_pickup = 1; }else{ $item->self_pickup = 0; }
+        if (isset($item->city_delivery)) { $item->city_delivery = 1; }else{ $item->city_delivery = 0; }
+        if (isset($item->country_delivery)) { $item->country_delivery = 1; }else{ $item->country_delivery = 0; }
+        if (isset($item->int_delivery)) { $item->int_delivery = 1; }else{ $item->int_delivery = 0; }
+
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -175,6 +214,7 @@ class Ac_ItemController extends Controller
                 $item_image->image_10 = '/storage' . '/' . 'account' . '/' . Auth::user()->id . '/' . 'items' . '/' . $filename;
             }
 
+
             $item_image->save();
 
 
@@ -200,6 +240,10 @@ class Ac_ItemController extends Controller
 
     public function update(Request $request, Item $item)
     {
+        if ($request->description == null) {
+            $request->description = Item::whereId($item->id)->value('description');
+        }
+
         $item = Item::find($item->id);
 
         $item->title = $request->title;
@@ -212,6 +256,20 @@ class Ac_ItemController extends Controller
         $item->city_id = $request->city_id;
         $item->type = $request->type;
         $item->category_id = $request->category_id;
+
+        $item->prepayment = $request->prepayment;
+        $item->cash_on_delivery = $request->cash_on_delivery;
+        $item->self_pickup = $request->self_pickup;
+        $item->city_delivery = $request->city_delivery;
+        $item->country_delivery = $request->country_delivery;
+        $item->int_delivery = $request->int_delivery;
+
+        if (isset($item->prepayment)) { $item->prepayment = 1; }else{ $item->prepayment = 0; }
+        if (isset($item->cash_on_delivery)) { $item->cash_on_delivery = 1; }else{ $item->cash_on_delivery = 0; }
+        if (isset($item->self_pickup)) { $item->self_pickup = 1; }else{ $item->self_pickup = 0; }
+        if (isset($item->city_delivery)) { $item->city_delivery = 1; }else{ $item->city_delivery = 0; }
+        if (isset($item->country_delivery)) { $item->country_delivery = 1; }else{ $item->country_delivery = 0; }
+        if (isset($item->int_delivery)) { $item->int_delivery = 1; }else{ $item->int_delivery = 0; }
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -355,4 +413,18 @@ class Ac_ItemController extends Controller
         return redirect()->route('item.index');
     }
 
+    public function imagedestroy(Request $request, $id)
+    {
+        $image = ItemImage::whereUser_id(Auth::user()->id)->whereItem_id($id)->value($request->image_field);
+
+        ItemImage::whereUser_id(Auth::user()->id)->whereItem_id($id)->update([$request->image_field => null]);
+
+        $filename = public_path($image);
+
+        if(File::exists($filename)) {
+            File::delete($filename);
+        }
+
+        return redirect()->route('item.edit', $id);
+    }
 }

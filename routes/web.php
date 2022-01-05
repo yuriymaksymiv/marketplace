@@ -25,7 +25,7 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return view('landing.home'); });
 
 Route::get('/marketplace',                             [ItemController::class, 'marketplace'])->name('marketplace');
 
@@ -36,9 +36,12 @@ Route::get('/item/store/{slug}',                       [ItemController::class, '
 Route::get('/item/country/{slug}',                     [ItemController::class, 'country']);
 Route::get('/item/city/{slug}',                        [ItemController::class, 'city']);
 
+Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
+//    Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
     Route::resource('/account/item',                Ac_ItemController::class);
+    Route::post('/account/item/image-destroy/{id}',              [Ac_ItemController::class, 'imagedestroy'])->name('image.destroy');
+    Route::get('/account/item/sort/{sort}',                [Ac_ItemController::class, 'sort'])->name('item.sort');
 
 });

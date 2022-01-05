@@ -2,8 +2,8 @@
 
 return [
 
-    'create_new_item' => 'Створити новий товар',
-    'edit_item' => 'Редагувати товар',
+    'create_new_item' => 'Створити нове оголошення',
+    'edit_item' => 'Редагувати оголошення',
 
 
     'title' => 'Назва товару',
@@ -11,7 +11,6 @@ return [
     'type' => 'Тип',
     'price' => 'Ціна',
     'currency' => 'Валюта',
-    'uah' => 'ГРН',
     'product' => 'Товар',
     'service' => 'Послуга',
     'description' => 'Опис',
@@ -26,8 +25,15 @@ return [
     'choose_region' => 'Виберіть область',
     'choose_city' => 'Виберіть місто',
 
+    'uah' => 'ГРН',
+    'usd' => 'USD',
+    'usdt' => 'USDT',
+    'btc' => 'BTC',
+    'bnb' => 'BNB',
+
+    'buy_for_cryptocurrency' => 'Даний товар можна обміняти на критовалюту',
     'delivery_and_payment' => 'Доставка та оплата',
-    'prepayment_for_goods' => 'Передплата',
+    'prepayment' => 'Передплата',
     'cash_on_delivery' => 'Накладний платіж',
     'self_pickup' => 'Самовивіз',
     'city_delivery' => 'Доставка по місту',

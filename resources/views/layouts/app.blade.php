@@ -1,85 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Inspiga</title>
-    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Gigaland - NFT Marketplace Website Template" name="description" />
-    <meta content="" name="keywords" />
-    <meta content="" name="author" />
-    <!-- CSS Files
-    ================================================== -->
-    <link id="bootstrap" href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link id="bootstrap-grid" href="{{ asset('css/bootstrap-grid.min.css')}}" rel="stylesheet" type="text/css" />
-    <link id="bootstrap-reboot" href="{{ asset('css/bootstrap-reboot.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/animate.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/owl.carousel.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/owl.theme.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/owl.transitions.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/jquery.countdown.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/custom.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('vendor/summernote/summernote-bs4.css')}}" rel="stylesheet" type="text/css" />
+    <title>Eduport - LMS, Education and Course Theme</title>
 
-    <!-- color scheme -->
-    <link id="colors" href="{{ asset('css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/coloring.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Webestica.com">
+    <meta name="description" content="Eduport- LMS, Education and Course Theme">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+
+    <!-- Plugins CSS -->
+    <link href="{{ asset('assets/vendor/font-awesome/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/quill/css/quill.snow.css')}}" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
+
 </head>
 
 <body>
-<div id="wrapper">
-
+@include('layouts.header')
 @yield('content')
-<!-- ========== END MAIN CONTENT ========== -->
-
-</div>
-<!-- Javascript Files
-================================================== -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('js/wow.min.js')}}"></script>
-<script src="{{asset('js/jquery.isotope.min.js')}}"></script>
-<script src="{{asset('js/easing.js')}}"></script>
-<script src="{{asset('js/owl.carousel.js')}}"></script>
-<script src="{{asset('js/validation.js')}}"></script>
-<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('js/enquire.min.js')}}"></script>
-<script src="{{asset('js/jquery.plugin.js')}}"></script>
-<script src="{{asset('js/jquery.countTo.js')}}"></script>
-<script src="{{asset('js/jquery.countdown.js')}}"></script>
-<script src="{{asset('js/jquery.lazy.min.js')}}"></script>
-<script src="{{asset('js/jquery.lazy.plugins.min.js')}}"></script>
-<script src="{{asset('js/designesia.js')}}"></script>
-<script src="{{asset('js/particles.js')}}"></script>
-<script src="{{asset('js/particles-settings.js')}}"></script>
-<script src="{{asset('js/summernote.js')}}"></script>
-<script src="{{asset('js/summernote.js')}}"></script>
-<script src="{{asset('vendor/summernote/summernote-bs4.js')}}"></script>
-
-<!-- COOKIES NOTICE  -->
-<script src="{{asset('js/cookit.js')}}"></script>
-<script>
-    $(document).ready(function() {
-        $.cookit({
-            backgroundColor: '#EEEEEE',
-            messageColor: '#333333',
-            linkColor: '#403f83',
-            buttonColor: '#403f83',
-            messageText: "This website uses cookies to ensure you get the best experience on our website.",
-            linkText: "Learn more",
-            linkUrl: "index.html",
-            buttonText: "I accept",
-        });
-
-    });
 
 
-</script>
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
+<!-- Bootstrap JS -->
+<script src="{{asset('/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+
+{{--<!-- Vendors -->--}}
+<script src="{{asset('assets/vendor/tiny-slider/tiny-slider.js')}}"></script>
+<script src="{{asset('assets/vendor/glightbox/js/glightbox.js')}}"></script>
+<script src="{{asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js')}}"></script>
+<script src="{{asset('assets/vendor/quill/js/quill.min.js')}}"></script>
+
+{{--<!-- Template Functions -->--}}
+<script src="{{asset('assets/js/functions.js')}}"></script>
 
 </body>
-
 </html>

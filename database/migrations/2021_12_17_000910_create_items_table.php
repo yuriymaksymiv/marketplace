@@ -30,6 +30,7 @@ class CreateItemsTable extends Migration
             $table->string('status');
             $table->tinyInteger('published')->default(0);
             $table->tinyInteger('crypto_pay')->default(1);
+            $table->tinyInteger('prepayment')->default(0);
             $table->tinyInteger('cash_on_delivery')->default(0);
             $table->tinyInteger('self_pickup')->default(0);
             $table->tinyInteger('city_delivery')->default(0);
@@ -38,7 +39,7 @@ class CreateItemsTable extends Migration
             $table->string('image');
             $table->tinyInteger('check')->default(0);
 
-            $table->dateTime('promo_at')->nullable();;
+            $table->dateTime('promo_at')->nullable();
             $table->dateTime('sort_at');
             $table->dateTime('ends_at');
 

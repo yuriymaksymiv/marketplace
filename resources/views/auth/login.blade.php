@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('landing.layouts.app')
 @section('content')
-    @include('layouts.top-menu-light')
+    @include('landing.layouts.top-menu-light')
     <!-- content begin -->
     <div class="align-items-center" style="padding-top: 180px"  id="content">
 

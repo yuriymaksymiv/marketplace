@@ -22,6 +22,7 @@
     <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/glightbox/css/glightbox.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/choices/css/choices.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/quill/css/quill.snow.css')}}" rel="stylesheet">
 
     <!-- Theme CSS -->
@@ -44,6 +45,7 @@
 <script src="{{asset('assets/vendor/tiny-slider/tiny-slider.js')}}"></script>
 <script src="{{asset('assets/vendor/glightbox/js/glightbox.js')}}"></script>
 <script src="{{asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js')}}"></script>
+<script src="{{asset('assets/vendor/choices/js/choices.min.js')}}"></script>
 <script src="{{asset('assets/vendor/quill/js/quill.min.js')}}"></script>
 
 {{--<!-- Template Functions -->--}}

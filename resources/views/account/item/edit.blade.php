@@ -492,8 +492,17 @@
 @section('scripts')
 
     <script>
+
         var quill = new Quill('#quilleditor', {
-            theme: 'snow'
+            theme: 'snow',
+            modules: {
+                'toolbar': [
+                    [ 'bold', 'italic', 'underline', 'strike' ],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+                    [ 'clean' ]
+                ]
+            }
         });
         quill.on('text-change', function(delta, oldDelta, source) {
             document.getElementById("quill_html").value = quill.root.innerHTML;

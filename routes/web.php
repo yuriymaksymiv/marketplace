@@ -36,12 +36,14 @@ Route::get('/item/store/{slug}',                       [ItemController::class, '
 Route::get('/item/country/{slug}',                     [ItemController::class, 'country']);
 Route::get('/item/city/{slug}',                        [ItemController::class, 'city']);
 
-Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
-
 Route::middleware(['auth'])->group(function () {
 //    Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
     Route::resource('/account/item',                Ac_ItemController::class);
     Route::post('/account/item/image-destroy/{id}',              [Ac_ItemController::class, 'imagedestroy'])->name('image.destroy');
     Route::get('/account/item/sort/{sort}',                [Ac_ItemController::class, 'sort'])->name('item.sort');
+
+    Route::get('/account/settings',                        [Ac_ProfileController::class, 'edit'])->name('settings');
+    Route::put('/account/profileImage',                    [Ac_ProfileController::class, 'profileImage'])->name('profile-image.update');
+    Route::put('/account/socialMedia',                    [Ac_ProfileController::class, 'socialMedia'])->name('social-media.update');
 
 });

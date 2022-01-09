@@ -113,8 +113,8 @@
                                 <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
-                                        <a class="list-group-item active" href="/account/item"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>{{ __('general.my_items')}}</a>
-                                        <a class="list-group-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>{{ __('general.settings')}}</a>
+                                        <a class="list-group-item {{ Request::is( 'account/item*') ? 'active' : '' }}" href="/account/item"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>{{ __('general.my_items')}}</a>
+                                        <a class="list-group-item {{ Request::is( 'account/settings*') ? 'active' : '' }}" href="/account/settings"><i class="bi bi-gear fa-fw me-2"></i>{{ __('general.settings')}}</a>
                                         <a class="list-group-item text-danger bg-danger-soft-hover" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt fa-fw me-2"></i>{{ __('general.log_out')}}
                                         </a>

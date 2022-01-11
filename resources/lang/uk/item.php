@@ -24,6 +24,7 @@ return [
     'choose_country' => 'Виберіть країну',
     'choose_region' => 'Виберіть область',
     'choose_city' => 'Виберіть місто',
+    'all_items' => 'Всі оголошення',
 
     'uah' => 'ГРН',
     'usd' => 'USD',

@@ -68,11 +68,11 @@ class ItemController extends Controller
 
     public function store($slug) {
 
-        $id = User::whereSlug($slug)->value('id');
-        $items = Item::whereUser_id($id)->whereCheck('1')->wherePublished('1')->get();
+        $store = User::whereSlug($slug)->select('id', 'name')->firstOrFail();
+        $items = Item::whereUser_id($store->id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.store', compact('items'));
+            return view('item.store', compact('items', 'store'));
         }else {
             return redirect()->route('marketplace');
         }

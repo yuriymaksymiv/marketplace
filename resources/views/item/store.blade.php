@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="bg-light p-4 text-center rounded-3">
-                            <h1 class="m-0">{{ __('city.' .$slug ) }}</h1>
+                            <h1 class="m-0">{{ $store->name }}</h1>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col-12">
 
                     @include('item._item-sort')
-                        
+
                     </div>
                     <!-- Main content END -->
                 </div><!-- Row END -->

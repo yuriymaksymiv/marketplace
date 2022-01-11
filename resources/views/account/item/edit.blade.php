@@ -212,14 +212,22 @@
                     <div class="col-md-3">
                         <label class="form-label">{{ __('item.category')}}<span class="text-danger"> *</span></label>
                         <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="category_id" required>
-                            @foreach($categories as $category)
-                                <option value="{{ $item->category_id }}"
-                                        @if ($category->id == $item->category->id)
-                                        selected="selected"
-                                    @endif>
-                                    {{ __('category.' .$category->slug) }}
-                                </option>
-                            @endforeach
+                            @if ($item->category_id == 0)
+                                <option value="0">{{ __('item.choose_category')}}</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ __('category.' . $category->slug )}}</option>
+                                @endforeach
+                            @else()
+                                <option value="0">{{ __('item.choose_category')}}</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $item->category_id }}"
+                                            @if ($category->id == $item->category->id)
+                                            selected="selected"
+                                        @endif>
+                                        {{ __('category.' .$category->slug) }}
+                                    </option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
 

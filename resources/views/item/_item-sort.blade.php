@@ -12,7 +12,7 @@
                 <div class="card-body pb-0">
                     <!-- Badge and favorite -->
                     <div class="d-flex justify-content-between mb-2">
-                        <a href="/item/category/{{ $item->category->slug }}" class="badge bg-success bg-opacity-10 text-success ml-0">{{ __('category.' . $item->category->slug )}}</a>
+                        @if($item->category_id > 0)<a href="/item/category/{{ $item->category->slug }}" class="badge bg-success bg-opacity-10 text-success ml-0">{{ __('category.' . $item->category->slug )}}</a>@endif
                     </div>
                     <!-- Title -->
                     <h6 class="card-title"><a href="/item/{{ $item->slug }}">{{ $item->title }}</a></h6>
@@ -24,8 +24,8 @@
                     <hr class="mt-2 mb-2">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href="/item/country/{{ $item->country->slug }}" class="text-dark h6 mb-0">{{ __('country.' . $item->country->slug )}}</a>
-                            <a href="/item/city/{{ $item->city->slug }}" class="text-secondary h6 mb-0 ms-3">{{ __('city.' . $item->city->slug )}}</a>
+                            @if($item->country_id > 0)<a href="/item/country/{{ $item->country->slug }}" class="text-dark h6 mb-0 me-3">{{ __('country.' . $item->country->slug )}}</a>@endif
+                            @if($item->city_id > 0)<a href="/item/city/{{ $item->city->slug }}" class="text-secondary h6 mb-0">{{ __('city.' . $item->city->slug )}}</a>@endif
                         </div>
                         <span class="h6 fw-light mb-0 text-muted"><i class="fas fa-eye text-muted me-2"></i>{{ $item->views }}</span>
                     </div>

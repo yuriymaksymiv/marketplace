@@ -71,7 +71,7 @@
                         <a class="nav-link" href="/">{{ __('general.white_paper')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">{{ __('general.marketplace')}}</a>
+                        <a class="nav-link" href="/marketplace">{{ __('general.marketplace')}}</a>
                     </li>
 
 

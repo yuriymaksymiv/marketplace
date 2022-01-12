@@ -90,4 +90,17 @@ class ItemController extends Controller
         }
 
     }
+
+    public function search(Request $request) {
+
+        if( isset($_GET['search']) && strlen($_GET['search']) > 1){
+            $search_text = $_GET['search'];
+            $items = Item::where('title','LIKE','%'.$search_text.'%')->paginate(8);
+            $items->appends($request->all());
+
+            return view('item.search', compact('items'));
+        }else{
+            return view('item.search');
+        }
+    }
 }

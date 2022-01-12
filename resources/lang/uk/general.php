@@ -12,7 +12,7 @@ return [
     'my_profile' => 'Профіль',
     'my_items' => 'Мої товари',
     'items' => 'Товарів',
-    'settings' => 'Настройки',
+    'settings' => 'Налаштування',
     'available' => 'Доступно',
     'log_out' => 'Вийти',
 
@@ -33,7 +33,6 @@ return [
     'active_sort' => 'Активні',
     'disable_sort' => 'Вимкнені',
 
-
     'active' => 'Активний',
     'disable' => 'Вимкнено',
 
@@ -44,6 +43,5 @@ return [
     'edit' => 'Редагувати',
     'delete' => 'Видалити',
     'change_password' => 'Змінити пароль',
-
 
 ];

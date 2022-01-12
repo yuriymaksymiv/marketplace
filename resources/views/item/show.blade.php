@@ -254,7 +254,7 @@
                                             <div class="ms-sm-3 mt-2 mt-sm-0">
                                                 <h5 class="mb-0">
                                                     <a href="/item/store/{{ $item->user->slug }}">{{ $item->user->name }}
-                                                        @if (Auth::user()->verified == 1)<small><i class="fas fa-check-circle text-success"></i></small>@endif
+                                                        @if ($item->user->verified == 1)<small><i class="fas fa-check-circle text-success"></i></small>@endif
                                                     </a>
                                                 </h5>
                                                 <p class="mb-0 mt-2"><span class="badge bg-white text-dark shadow-sm"><i class="fa fa-mobile-alt text-dark me-2"></i><b> {{ $item->user->phone }}</b></span></p>
@@ -268,16 +268,16 @@
                                             <!-- Rating star -->
                                             <ul class="list-inline mb-0 mt-0 me-2">
                                                 @if($item->user->site != null)
-                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-linkedin" href="{{ $item->user->site }}"><i class="fa fa-fw fa-globe"></i></a> </li>
+                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-linkedin" href="{{ $item->user->site }}" target="_blank"><i class="fa fa-fw fa-globe"></i></a> </li>
                                                 @endif
                                                 @if($item->user->instagram != null)
                                                 <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-instagram-gradient" href="https://instagram.com/{{ $item->user->instagram }}" target="_blank"><i class="fab fa-fw fa-instagram"></i></a> </li>
                                                 @endif
                                                 @if($item->user->twitter != null)
-                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-twitter" href="https://twitter.com/{{ $item->user->twitter }}"><i class="fab fa-fw fa-twitter"></i></a></li>
+                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-twitter" href="https://twitter.com/{{ $item->user->twitter }}" target="_blank"><i class="fab fa-fw fa-twitter"></i></a></li>
                                                 @endif
                                                 @if($item->user->facebook != null)
-                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-facebook" href="https://facebook.com/{{ $item->user->facebook }}"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+                                                <li class="list-inline-item"> <a class="btn px-2 btn-sm bg-facebook" href="https://facebook.com/{{ $item->user->facebook }}" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
                                                 @endif
                                             </ul>
 

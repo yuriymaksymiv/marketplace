@@ -100,8 +100,8 @@
                 <!-- Nav Search START -->
                 <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
                     <div class="nav-item w-100">
-                        <form class="position-relative">
-                            <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                        <form class="position-relative" action="{{ route('search') }}" method="GET">
+                            <input class="form-control pe-5 bg-transparent" type="search" name="search" placeholder="Search" aria-label="Search">
                             <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                         </form>
                     </div>
@@ -132,7 +132,7 @@
                             <hr>
                         </li>
                         <!-- Links -->
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>{{ __('general.my_profile')}}</a></li>
+                        <li><a class="dropdown-item" href="/account/settings"><i class="bi bi-person fa-fw me-2"></i>{{ __('general.my_profile')}}</a></li>
                         <li><a class="dropdown-item" href="/account/item"><i class="bi bi-gear fa-fw me-2"></i>{{ __('general.my_items')}}</a></li>
                         <li>
                             <a class="dropdown-item bg-danger-soft-hover" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

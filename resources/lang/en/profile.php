@@ -2,10 +2,10 @@
 
 return [
 
-    'name' => 'Назва',
-    'phone' => 'Телефон',
-    'image' => 'Зображення',
-    'settings' => 'Налаштування',
+    'name' => 'Name',
+    'phone' => 'Phone',
+    'image' => 'Image',
+    'settings' => 'Settings',
 
     'enter_site' => 'Введіть посилання на сайт',
     'enter_instagram_username' => "Введіть ім'я користувача Instagram",

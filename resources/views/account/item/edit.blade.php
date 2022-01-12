@@ -293,7 +293,7 @@
                                     <option value="{{ $country->id }}">{{ __('country.' . $country->slug )}}</option>
                                 @endforeach
                             @else()
-                                <option value="0">{{ __('item.choose_region')}}</option>
+                                <option value="0">{{ __('item.choose_country')}}</option>
                                 @foreach($countries as $country)
                                     <option value="{{ $item->country_id }}"
                                             @if ($country->id == $item->country->id)

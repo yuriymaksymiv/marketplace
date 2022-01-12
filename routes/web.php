@@ -29,12 +29,16 @@ Route::get('/', function () { return view('landing.home'); });
 
 Route::get('/marketplace',                             [ItemController::class, 'marketplace'])->name('marketplace');
 
+
 Route::get('/item',                                    [ItemController::class, 'index'])->name('index');
 Route::get('/item/{slug}',                             [ItemController::class, 'show']);
 Route::get('/item/category/{slug}',                    [ItemController::class, 'category']);
 Route::get('/item/store/{slug}',                       [ItemController::class, 'store']);
 Route::get('/item/country/{slug}',                     [ItemController::class, 'country']);
 Route::get('/item/city/{slug}',                        [ItemController::class, 'city']);
+
+Route::get('/search',                                  [ItemController::class, 'search'])->name('search');
+
 
 Route::middleware(['auth'])->group(function () {
 //    Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');

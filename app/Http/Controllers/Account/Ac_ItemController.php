@@ -18,8 +18,8 @@ use Intervention\Image\Facades\Image;
 class Ac_ItemController extends Controller
 {
     public function index () {
-        $items = Item::whereUser_id(Auth::user()->id)->get();
-        return view('account.item.index', compact('items'));
+        $items = Item::whereUser_id(Auth::user()->id)->paginate(15);
+        return view('marketplace.account.item.index', compact('items'));
     }
 
     public function sort ($sort) {
@@ -36,7 +36,7 @@ class Ac_ItemController extends Controller
             $items = Item::whereUser_id(Auth::user()->id)->whereStatus('disable')->get();
         }
 
-        return view('account.item.index', compact('items'));
+        return view('marketplace.account.item.index', compact('items'));
     }
 
     public function create () {
@@ -45,7 +45,7 @@ class Ac_ItemController extends Controller
         $cities = City::all();
         $categories = Category::wherePublished('1')->get();
 
-        return view('account.item.create', compact('categories', 'countries', 'regions', 'cities'));
+        return view('marketplace.account.item.create', compact('categories', 'countries', 'regions', 'cities'));
     }
 
     public function store (Request $request) {
@@ -232,7 +232,7 @@ class Ac_ItemController extends Controller
             $cities = City::all();
             $categories = Category::wherePublished('1')->get();
 
-            return view('account.item.edit', compact('item', 'categories', 'countries', 'regions', 'cities'));
+            return view('marketplace.account.item.edit', compact('item', 'categories', 'countries', 'regions', 'cities'));
         }else{
             return redirect()->route('item.index');
         }

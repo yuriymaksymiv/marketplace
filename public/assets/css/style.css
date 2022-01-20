@@ -19580,6 +19580,13 @@ small,
     color: #3aacdd;
 }
 
+.text-telegram {
+    color: #27a9ea;
+}
+.text-telegram:hover {
+    color: #3aacdd;
+}
+
 .bg-linkedin {
     background-color: #238cc8;
     color: #fff;

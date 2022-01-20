@@ -6,6 +6,7 @@ return [
     'home' => 'Home',
     'white_paper' => 'White Paper',
     'marketplace' => 'Marketplace',
+    'login' => 'Lon in',
 
 //   general
     'add_item' => '+ Add item',
@@ -15,6 +16,8 @@ return [
     'settings' => 'Settings',
     'available' => 'Available',
     'log_out' => 'Log out',
+    'search' => 'Search',
+    'no_result_found' => 'No result found!',
 
     'slide_text_1' => 'Exchange cryptocurrency for real world products',
 

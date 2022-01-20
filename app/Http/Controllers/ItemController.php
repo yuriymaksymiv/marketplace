@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function marketplace()
     {
         $items = Item::whereCheck('1')->wherePublished('1')->paginate(8);
-        return view('item.marketplace', compact('items'));
+        return view('marketplace.item.marketplace', compact('items'));
     }
 
     public function category($slug) {
@@ -24,7 +24,7 @@ class ItemController extends Controller
         $items = Item::whereCategory_id($category_id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.category', compact('items', 'slug'));
+            return view('marketplace.item.category', compact('items', 'slug'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -36,7 +36,7 @@ class ItemController extends Controller
         $items = Item::whereCountry_id($country_id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.country', compact('items', 'slug'));
+            return view('marketplace.item.country', compact('items', 'slug'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -48,7 +48,7 @@ class ItemController extends Controller
         $items = Item::whereRegion_id($region_id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.country', compact('items', 'slug'));
+            return view('marketplace.item.country', compact('items', 'slug'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -60,7 +60,7 @@ class ItemController extends Controller
         $items = Item::whereCity_id($city_id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.city', compact('items', 'slug'));
+            return view('marketplace.item.city', compact('items', 'slug'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -72,7 +72,7 @@ class ItemController extends Controller
         $items = Item::whereUser_id($store->id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {
-            return view('item.store', compact('items', 'store'));
+            return view('marketplace.item.store', compact('items', 'store'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -84,7 +84,7 @@ class ItemController extends Controller
 
         if (isset($item)) {
             Item::whereSlug($slug)->increment('views');
-            return view('item.show', compact('item'));
+            return view('marketplace.item.show', compact('item'));
         }else {
             return redirect()->route('marketplace');
         }
@@ -98,7 +98,7 @@ class ItemController extends Controller
             $items = Item::where('title','LIKE','%'.$search_text.'%')->paginate(8);
             $items->appends($request->all());
 
-            return view('item.search', compact('items'));
+            return view('marketplace.item.search', compact('items'));
         }else{
             return view('item.search');
         }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account\Ac_ItemController;
 use App\Http\Controllers\Account\Ac_ProfileController;
 use App\Http\Controllers\Account\ACProfileController;
+use App\Http\Controllers\DocController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -26,18 +27,19 @@ Route::get('locale/{locale}', function ($locale) {
 
 
 Route::get('/', function () { return view('landing.home'); });
+Route::get('/nft', function () { return view('landing.nft'); });
 
 Route::get('/marketplace',                             [ItemController::class, 'marketplace'])->name('marketplace');
 
 
-Route::get('/item',                                    [ItemController::class, 'index'])->name('index');
-Route::get('/item/{slug}',                             [ItemController::class, 'show']);
-Route::get('/item/category/{slug}',                    [ItemController::class, 'category']);
-Route::get('/item/store/{slug}',                       [ItemController::class, 'store']);
-Route::get('/item/country/{slug}',                     [ItemController::class, 'country']);
-Route::get('/item/city/{slug}',                        [ItemController::class, 'city']);
+Route::get('/marketplace/item',                               [ItemController::class, 'index'])->name('index');
+Route::get('/marketplace/item/{slug}',                        [ItemController::class, 'show']);
+Route::get('/marketplace/category/{slug}',                    [ItemController::class, 'category']);
+Route::get('/marketplace/store/{slug}',                       [ItemController::class, 'store']);
+Route::get('/marketplace/country/{slug}',                     [ItemController::class, 'country']);
+Route::get('/marketplace/city/{slug}',                        [ItemController::class, 'city']);
 
-Route::get('/search',                                  [ItemController::class, 'search'])->name('search');
+Route::get('/marketplace/search',                                  [ItemController::class, 'search'])->name('search');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -51,3 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/account/socialMedia',                    [Ac_ProfileController::class, 'socialMedia'])->name('social-media.update');
 
 });
+
+
+Route::get('/docs',                                         [DocController::class, 'projectOverview']);
+Route::get('/docs/roadmap',                                 [DocController::class, 'roadMap']);

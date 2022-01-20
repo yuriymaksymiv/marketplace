@@ -13,16 +13,28 @@
                             </div>
                             <!-- logo close -->
                         </div>
-                        <div class="de-flex-col">
-                            <input id="quick_search" class="xs-hide style-2" name="quick_search" placeholder="search item here..." type="text" />
-                        </div>
                     </div>
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu begin -->
                         <ul id="mainmenu">
-                            <a href="/">{{ __('general.home')}}<span></span></a>
-                            <a href="#">NFT<span></span></a>
-                            <a href="#">{{ __('general.white_paper')}}</a>
+                            <li><a href="/" class="text-white">{{ __('general.home')}}<span></span></a></li>
+                            <li><a href="/nft" class="text-white">NFT<span></span></a></li>
+                            <li><a href="/docs" target="_blank" class="text-white">{{ __('general.white_paper')}}<span></span></a></li>
+                            <li class="content-en">
+                                @if ( Config::get('app.locale') == 'en')
+                                    <a>EN<span></span></a>
+                                @elseif ( Config::get('app.locale') == 'ru' )
+                                    <a>RU<span></span></a>
+                                @elseif ( Config::get('app.locale') == 'uk' )
+                                    <a>UA<span></span></a>
+                                @endif
+                                <ul>
+                                    <li><a href="{{ route('locale', ['locale' => 'en']) }}">EN</a></li>
+                                    <li><a href="{{ route('locale', ['locale' => 'ru']) }}">RU</a></li>
+                                    <li><a href="{{ route('locale', ['locale' => 'uk']) }}">UA</a></li>
+                                </ul>
+                            </li>
+
                         </ul>
                         <!-- mainmenu close -->
                         <div class="menu_side_area">

@@ -13,16 +13,14 @@
                             </div>
                             <!-- logo close -->
                         </div>
-                        <div class="de-flex-col">
-                            <input id="quick_search" class="xs-hide" name="quick_search" placeholder="search item here..." type="text" />
-                        </div>
+
                     </div>
                     <div class="de-flex-col header-col-mid">
                         <!-- mainmenu begin -->
                         <ul id="mainmenu">
                             <li><a href="/" class="text-dark">{{ __('general.home')}}<span></span></a></li>
-                            <li><a href="#" class="text-dark">NFT<span></span></a></li>
-                            <li><a href="#" class="text-dark">{{ __('general.white_paper')}}</a></li>
+                            <li><a href="/nft" class="text-dark">NFT<span></span></a></li>
+                            <li><a href="/docs" target="_blank" class="text-dark">{{ __('general.white_paper')}}<span></span></a></li>
                             <li class="content-en">
                                 @if ( Config::get('app.locale') == 'en')
                                 <a>EN<span></span></a>

@@ -13,7 +13,7 @@ class Ac_ProfileController extends Controller
 {
     public function edit() {
 
-        return view('account.settings.edit');
+        return view('marketplace.account.settings.edit');
     }
 
     public function profileImage (Request $request) {

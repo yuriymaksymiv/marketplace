@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('telegram')->nullable();
             $table->string('twitter')->nullable();
             $table->tinyInteger('verified')->default(0);
-            $table->tinyInteger('active')->default(0);
+            $table->string('status')->default('active');
 
             $table->rememberToken();
             $table->timestamps();

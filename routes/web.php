@@ -26,10 +26,10 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 
-Route::get('/', function () { return view('landing.home'); });
-Route::get('/nft', function () { return view('landing.nft'); });
+Route::get('/', function () { return redirect('marketplace'); });
+Route::get('/nft', function () { return redirect('marketplace'); });
 
-Route::get('/marketplace',                             [ItemController::class, 'marketplace'])->name('marketplace');
+Route::get('/marketplace',                                  [ItemController::class, 'marketplace'])->name('marketplace');
 
 
 Route::get('/marketplace/item',                               [ItemController::class, 'index'])->name('index');
@@ -42,18 +42,20 @@ Route::get('/marketplace/city/{slug}',                        [ItemController::c
 Route::get('/marketplace/search',                                  [ItemController::class, 'search'])->name('search');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['middleware' => ['auth', 'verified']], function (){
 //    Route::get('/account/profile',                    [Ac_ProfileController::class, 'index'])->name('profile');
-    Route::resource('/account/item',                Ac_ItemController::class);
-    Route::post('/account/item/image-destroy/{id}',              [Ac_ItemController::class, 'imagedestroy'])->name('image.destroy');
+    Route::resource('/account/item',            Ac_ItemController::class);
+
+    Route::post('/account/item/image-destroy/{id}',        [Ac_ItemController::class, 'imagedestroy'])->name('image.destroy');
     Route::get('/account/item/sort/{sort}',                [Ac_ItemController::class, 'sort'])->name('item.sort');
 
     Route::get('/account/settings',                        [Ac_ProfileController::class, 'edit'])->name('settings');
     Route::put('/account/profileImage',                    [Ac_ProfileController::class, 'profileImage'])->name('profile-image.update');
-    Route::put('/account/socialMedia',                    [Ac_ProfileController::class, 'socialMedia'])->name('social-media.update');
+    Route::put('/account/socialMedia',                     [Ac_ProfileController::class, 'socialMedia'])->name('social-media.update');
 
 });
 
 
 Route::get('/docs',                                         [DocController::class, 'projectOverview']);
 Route::get('/docs/roadmap',                                 [DocController::class, 'roadMap']);
+Route::get('/docs/binance',                                 [DocController::class, 'binance']);

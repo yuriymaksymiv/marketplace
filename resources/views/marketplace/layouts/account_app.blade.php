@@ -6,8 +6,8 @@
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Webestica.com">
-    <meta name="description" content="Eduport- LMS, Education and Course Theme">
+    <meta name="author" content="inspiga.com">
+    <meta name="description" content="Exchange cryptocurrency for real world products">
 
     <!-- Favicon -->
 {{--    <link rel="shortcut icon" href="assets/images/favicon.ico">--}}
@@ -27,6 +27,16 @@
 
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css')}}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H3WRRPMWY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8H3WRRPMWY');
+    </script>
 
 </head>
 
@@ -143,7 +153,7 @@
 <!-- **************** MAIN CONTENT END **************** -->
 
 <!-- Bootstrap JS -->
-<script src="{{asset('/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 
 {{--<!-- Vendors -->--}}
 <script src="{{asset('assets/vendor/tiny-slider/tiny-slider.js')}}"></script>
@@ -153,7 +163,7 @@
 <script src="{{asset('assets/vendor/quill/js/quill.min.js')}}"></script>
 
 {{--<!-- Template Functions -->--}}
-<script src="{{asset('/assets/js/functions.js')}}"></script>
-@yield('scripts')
+<script src="{{asset('assets/js/functions.js')}}"></script>
+@stack('scripts')
 </body>
 </html>

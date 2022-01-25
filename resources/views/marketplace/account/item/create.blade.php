@@ -68,32 +68,15 @@
                     <div class="col-12">
                         <label class="form-label">{{ __('item.description')}}<span class="text-danger"> *</span></label>
                         <!-- Editor toolbar -->
-                        <div class="bg-light border border-bottom-0 rounded-top py-3" id="quilltoolbar">
-                            <span class="ql-formats">
-												<button class="ql-bold"></button>
-												<button class="ql-italic"></button>
-												<button class="ql-underline"></button>
-												<button class="ql-strike"></button>
-											</span>
-                            <span class="ql-formats">
-												<select class="ql-color"></select>
-												<select class="ql-background"></select>
-											</span>
-                            <span class="ql-formats">
-												<button class="ql-list" value="ordered"></button>
-												<button class="ql-list" value="bullet"></button>
-												<button class="ql-indent" value="-1"></button>
-												<button class="ql-indent" value="+1"></button>
-											</span>
-                            <span class="ql-formats">
-												<button class="ql-clean"></button>
-											</span>
+                        <div class="bg-light border border-bottom-0 rounded-top py-2" id="quilltoolbar">
+
                         </div>
 
                         <!-- Main toolbar -->
-                        <div class="bg-body border rounded-bottom h-300px overflow-hidden" id="quilleditor" >
+                        <div class="bg-body border rounded-bottom h-300px overflow-hidden" id="quilleditor">
 
                         </div>
+
 
                         <input type="hidden" id="quill_html" name="description"/>
                     </div>
@@ -277,8 +260,25 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 
+    <script>
+
+        var quill = new Quill('#quilleditor', {
+            theme: 'snow',
+            modules: {
+                'toolbar': [
+                    [ 'bold', 'italic', 'underline', 'strike' ],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+                    [ 'clean' ]
+                ]
+            }
+        });
+        quill.on('text-change', function(delta, oldDelta, source) {
+            document.getElementById("quill_html").value = quill.root.innerHTML;
+        });
+    </script>
     <script>
         // Textarea
         var quill = new Quill('#quilleditor', {
@@ -307,4 +307,4 @@
             return false;
         }
     </script>
-@endsection
+@endpush

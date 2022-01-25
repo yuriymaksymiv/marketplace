@@ -10,7 +10,7 @@ return [
     'service' => 'Послуги',
     'electronics' => 'Техніка',
     'clothing' => 'Одяг',
-    'furniture' => 'Послуги',
+    'furniture' => 'Меблі',
     'vacation' => 'Відпочинок',
 
 ];

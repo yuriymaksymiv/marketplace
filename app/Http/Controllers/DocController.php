@@ -14,4 +14,8 @@ class DocController extends Controller
     public function roadMap () {
         return view('doc.'. App::getLocale() .'.roadmap');
     }
+
+    public function binance () {
+        return view('doc.'. App::getLocale() .'.ehub_binance');
+    }
 }

@@ -67,6 +67,7 @@ class Ac_ItemController extends Controller
         $item->region_id = $request->region_id;
         $item->city_id = $request->city_id;
         $item->type = $request->type;
+        $item->published = '1';
         $item->status = 'Pending';
         $item->category_id = $request->category_id;
         $item->sort_at = Carbon::now();
@@ -427,4 +428,5 @@ class Ac_ItemController extends Controller
 
         return redirect()->route('item.edit', $id);
     }
+
 }

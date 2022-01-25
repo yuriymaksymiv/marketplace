@@ -1,12 +1,53 @@
 <!-- Header START -->
 <header class="navbar-light navbar-sticky header-static">
+    <nav class="py-0 bg-light border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+
+            </ul>
+            <ul class="nav">
+                <li class="nav-item"><a href="/docs" class="nav-link px-2" target="_blank"><span class="small">Docs</span></a></li>
+                <li class="nav-item nav-link"><span class="small">|</span></li>
+                <li class="nav-item dropdown">
+                        @if ( Config::get('app.locale') == 'en')
+                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'en']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small><i class="fas fa-globe me-2"></i></small>
+                                <span class="small">EN</span>
+                            </a>
+                        @elseif ( Config::get('app.locale') == 'ru' )
+                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'ru']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small><i class="fas fa-globe me-2"></i></small>
+                                <span class="small">RU</span>
+                            </a>
+                        @elseif ( Config::get('app.locale') == 'uk' )
+                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'uk']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small><i class="fas fa-globe me-2"></i></small>
+                                <span class="small">UA</span>
+                            </a>
+                        @endif
+                        <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
+                            <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}"><img class="fa-fw me-2" src="/images/language/en.png" alt="">English</a></li>
+                            <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}"><img class="fa-fw me-2" src="/images/language/ru.png" alt="">Русский</a></li>
+                            <li> <a class="dropdown-item me-3" href="{{ route('locale', ['locale' => 'uk']) }}"><img class="fa-fw me-2" src="/images/language/ua.png" alt="">Українська</a></li>
+                        </ul>
+
+                </li>
+                <li class="nav-item nav-link"><span class="small">|</span></li>
+                @auth
+                    <li class="nav-item"><a href="/account/item" class="nav-link  px-2"><span class="small">Account</span></a></li>
+                @else
+                    <li class="nav-item"><a href="/login" class="nav-link  px-2"><span class="small">Login</span></a></li>
+                @endauth
+            </ul>
+        </div>
+    </nav>
     <div class="container">
     <!-- Logo Nav START -->
     <nav class="navbar navbar-expand-xl">
         <div class="container-fluid">
             <!-- Logo START -->
             <a class="navbar-brand" href="/">
-                <img class="light-mode-item navbar-brand-item" src="/images/misc/logo-dark.png"  alt="logo">
+                <img class="light-mode-item" src="/images/misc/logo-dark.png" width="220px" alt="logo">
                 <img class="dark-mode-item navbar-brand-item" src="/images/misc/logo-dark.png" alt="logo">
             </a>
             <!-- Logo END -->
@@ -36,7 +77,10 @@
                                 <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
                                     <li> <a class="dropdown-item" href="/marketplace/category/food_delivery">{{ __('category.sushi')}}</a> </li>
                                 </ul>
-                            </li></ul>
+                            </li>
+                            <li> <a class="dropdown-item" href="/marketplace/category/furniture">{{ __('category.furniture')}}</a> </li>
+                            <li> <a class="dropdown-item" href="/marketplace/category/service">{{ __('category.service')}}</a> </li>
+                        </ul>
                     </li>
                 </ul>
                 <!-- Nav category menu END -->
@@ -44,45 +88,20 @@
                 <!-- Nav Main menu START -->
                 <ul class="navbar-nav navbar-nav-scroll me-0">
                     <!-- Nav item 1 Demos -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">{{ __('general.home')}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/nft">NFT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="/docs">{{ __('general.white_paper')}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/marketplace">{{ __('general.marketplace')}}</a>
-                    </li>
-                    <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
-                        <li class="nav-item dropdown">
-                            @if ( Config::get('app.locale') == 'en')
-                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'en']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-globe me-2"></i>
-                                <span class="d-none d-lg-inline-block">EN</span>
-                            </a>
-                            @elseif ( Config::get('app.locale') == 'ru' )
-                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'ru']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-globe me-2"></i>
-                                <span class="d-none d-lg-inline-block">RU</span>
-                            </a>
-                            @elseif ( Config::get('app.locale') == 'uk' )
-                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'uk']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-globe me-2"></i>
-                                <span class="d-none d-lg-inline-block">UA</span>
-                            </a>
-                            @endif
-                            <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
-                                <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}"><img class="fa-fw me-2" src="/images/language/en.png" alt="">English</a></li>
-                                <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}"><img class="fa-fw me-2" src="/images/language/ru.png" alt="">Русский</a></li>
-                                <li> <a class="dropdown-item me-3" href="{{ route('locale', ['locale' => 'uk']) }}"><img class="fa-fw me-2" src="/images/language/ua.png" alt="">Українська</a></li>
-                            </ul>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/">{{ __('general.home')}}</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="/nft">NFT</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" target="_blank" href="/docs">{{ __('general.white_paper')}}</a>--}}
+{{--                    </li>--}}
 
-                        </li>
 
-                    </ul>
+
+
+
 
                 </ul>
                 <!-- Nav Main menu END -->
@@ -100,9 +119,13 @@
             </div>
             <!-- Main navbar END -->
 
+            <div class="navbar-nav d-none d-lg-inline-block me-0">
+                <a href="/marketplace" class="btn btn-warning mb-0">{{ __('general.marketplace')}}</a>
+            </div>
+
             <!-- Profile START -->
             @auth
-                <div class="dropdown ms-1 ms-lg-0">
+                <div class="dropdown ms-1 ms-lg-0 ps-3">
                     <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                         <img class="avatar-img rounded-circle" src="{{ Auth::user()->image }}" alt="avatar">
                     </a>
@@ -136,9 +159,6 @@
                     </ul>
                 </div>
         @else
-                <div class="navbar-nav d-none d-lg-inline-block">
-                    <a href="/login" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign Up</a>
-                </div>
         @endauth
         <!-- Profile START -->
         </div>

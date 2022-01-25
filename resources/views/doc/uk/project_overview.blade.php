@@ -1,8 +1,5 @@
 @extends('doc.layouts.app')
 @section('content')
-    <div class="main-content">
-        <div class="row">
-            <div class="col-9">
                 <!-- Page title -->
                 <div class="my-5">
                     <h1>Огляд проекту</h1>
@@ -22,22 +19,6 @@
                             <h6>02. Яка вартість за розміщення оголошення?</h6>
                             <p>Публікація однієї позиції на маркетплейті коштуватиме <strong class="text-dark">1 INS </strong>  на місяць </p>
                         </li>
-                        <li class="mb-4">
-                            <h6>03. ?</h6>
-                            <p></p>
-                        </li>
-                        <li class="mb-4">
-                            <h6>02. Яка вартість за розміщення оголошення?</h6>
-                            <p></p>
-                        </li>
-                        <li class="mb-4">
-                            <h6>02. Яка вартість за розміщення оголошення?</h6>
-                            <p></p>
-                        </li>
-                        <li class="mb-4">
-                            <h6>02. Яка вартість за розміщення оголошення?</h6>
-                            <p></p>
-                        </li>
 
 
                     </ul>
@@ -45,8 +26,4 @@
 
                 </div>
                 @include('doc.layouts.social_media')
-
-            </div>
-        </div>
-    </div>
 @endsection

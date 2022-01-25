@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ Config::get('app.locale') == 'en' }}">
 <head>
     <title>White paper - Inspiga</title>
     <!-- Meta Tags -->
@@ -83,6 +83,8 @@
                             <div class="list-group list-group-borderless ms-4 p-3 p-md-4">
                                 <a class="list-group-item" href="/docs">{{ __('doc.project_overview') }}</a>
                                 <a class="list-group-item" href="/docs/roadmap">{{ __('doc.roadmap') }}</a>
+                                <b class="text-dark text-uppercase mt-3 mb-2">{{ __('doc.education_hub') }}</b>
+                                <a class="list-group-item" href="/docs/binance">{{ __('doc.how_to_register_on_binance') }}</a>
 
 
                             </div>
@@ -91,10 +93,16 @@
                 </div>
             </nav>
             <!-- Left sidebar END -->
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-9 col-sm-12">
 
             <!-- Main content START -->
                 @yield('content')
             <!-- Main content END -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

@@ -1,9 +1,5 @@
 @extends('doc.layouts.app')
 @section('content')
-    <!-- Main content START -->
-    <div class="main-content">
-        <div class="row">
-            <div class="col-9">
                 <!-- Page title -->
                 <div class="my-5">
                     <h1>Road map</h1>
@@ -78,8 +74,4 @@
                 <!-- Page content END -->
 
                 @include('doc.layouts.social_media')
-            </div>
-        </div>
-    </div>
-    <!-- Main content END -->
 @endsection

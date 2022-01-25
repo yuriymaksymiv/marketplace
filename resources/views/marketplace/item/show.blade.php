@@ -182,7 +182,7 @@
                                                 @if($item->city_id > 0 || $item->country_id > 0)<li class="list-inline-item fw-light h6 mb-0 mb-sm-0 text-secondary"><i class="fas fa-map-marker-alt text-primary"></i></li>@endif
                                                 @if($item->country_id > 0) <li class="list-inline-item fw-light h6 mb-1 mb-sm-0 text-primary me-3">{{ __('country.' . $item->country->slug )}}</li>@endif
                                                 @if($item->city_id > 0)<li class="list-inline-item fw-light h6 mb-1 mb-sm-0 text-primary me-5">{{ __('city.' . $item->city->slug )}} </li>@endif
-                                                <li class="list-inline-item fw-light h6 mb-1 mb-sm-0 text-secondary"><i class="far fa-calendar-alt text-secondary me-2"></i>09-09-2021</li>
+{{--                                                <li class="list-inline-item fw-light h6 mb-1 mb-sm-0 text-secondary"><i class="far fa-calendar-alt text-secondary me-2"></i>09-09-2021</li>--}}
                                             </ul>
                                         </div>
 

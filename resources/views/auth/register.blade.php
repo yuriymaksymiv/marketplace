@@ -47,6 +47,14 @@
                                         <input type='password' name='password_confirmation' id='password-confirm' class="form-control">
                                     </div>
                                 </div>
+                                <div class="mb-4 mt-4">
+                                    <div class="col-md-6"> {!! htmlFormSnippet() !!}
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block small text-danger">{{ $errors->first('g-recaptcha-response') }}
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
 
 
                                 <div class="col-md-12">

@@ -30,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'g-recaptcha-response' => 'recaptcha',
         ])->validate();
 
         return User::create([

@@ -18,4 +18,8 @@ class DocController extends Controller
     public function binance () {
         return view('doc.'. App::getLocale() .'.ehub_binance');
     }
+
+    public function tokenSale () {
+        return view('doc.'. App::getLocale() .'.token-sale');
+    }
 }

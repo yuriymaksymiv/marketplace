@@ -8,9 +8,10 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\ItemImage;
 use App\Models\Item;
-use App\Models\Region;
+use App\Models\State;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -40,32 +41,31 @@ class Ac_ItemController extends Controller
     }
 
     public function create () {
-        $countries = Country::all();
-        $regions = Region::all();
-        $cities = City::all();
-        $categories = Category::wherePublished('1')->get();
+        $countries = Country::all()->pluck(App::getLocale(),'id');
+        $categories = Category::whereParent_id('0')->wherePublished('1')->get();
 
-        return view('marketplace.account.item.create', compact('categories', 'countries', 'regions', 'cities'));
+        return view('marketplace.account.item.create', compact('categories', 'countries'));
     }
 
     public function store (Request $request) {
 
         $request->validate([
             'title' => 'required',
-            'price' => 'required',
+            'crypto_price' => 'required',
             'image' => 'required|image',
         ]);
+
 
         $item = new Item();
 
         $item->title = $request->title;
         $item->user_id = Auth::user()->id;
         $item->description = $request->description;
-        $item->price = $request->price;
-        $item->currency = $request->currency;
-        $item->country_id = $request->country_id;
-        $item->region_id = $request->region_id;
-        $item->city_id = $request->city_id;
+        $item->crypto_price = $request->crypto_price;
+        $item->crypto_currency = $request->crypto_currency;
+        $item->country_id = $request->country || 0;
+        $item->state_id = $request->state || 0;
+        $item->city_id = $request->city || 0;
         $item->type = $request->type;
         $item->published = '1';
         $item->status = 'Pending';
@@ -228,12 +228,10 @@ class Ac_ItemController extends Controller
 
         if($item = Item::whereUser_id(Auth::user()->id)->find($id)) {
 
-            $countries = Country::all();
-            $regions = Region::all();
-            $cities = City::all();
+            $countries = Country::all()->pluck(App::getLocale(),'id');
             $categories = Category::wherePublished('1')->get();
 
-            return view('marketplace.account.item.edit', compact('item', 'categories', 'countries', 'regions', 'cities'));
+            return view('marketplace.account.item.edit', compact('item', 'categories', 'countries'));
         }else{
             return redirect()->route('item.index');
         }
@@ -250,11 +248,8 @@ class Ac_ItemController extends Controller
         $item->title = $request->title;
         $item->user_id = Auth::user()->id;
         $item->description = $request->description;
-        $item->price = $request->price;
-        $item->currency = $request->currency;
-        $item->country_id = $request->country_id;
-        $item->region_id = $request->region_id;
-        $item->city_id = $request->city_id;
+        $item->crypto_price = $request->crypto_price;
+        $item->crypto_currency = $request->crypto_currency;
         $item->type = $request->type;
         $item->category_id = $request->category_id;
 
@@ -407,6 +402,19 @@ class Ac_ItemController extends Controller
 
     }
 
+    public function editGeo(Request $request)
+    {
+        $item = Item::whereUser_id(Auth::user()->id)->find($request->id);
+
+        $item->country_id = $request->country;
+        $item->state_id = $request->state;
+        $item->city_id = $request->city;
+
+        $item->save();
+
+        return redirect()->route('item.index');
+    }
+
     public function destroy($id)
     {
 
@@ -427,6 +435,16 @@ class Ac_ItemController extends Controller
         }
 
         return redirect()->route('item.edit', $id);
+    }
+
+    public function getStates($id){
+        $states= State::where('country_id',$id)->pluck(App::getLocale(),'id');
+        return json_encode($states);
+    }
+
+    public function getCities($id){
+        $states= City::where('state_id',$id)->pluck(App::getLocale(),'id');
+        return json_encode($states);
     }
 
 }

@@ -16,7 +16,8 @@
                     </div>
                     <!-- Title -->
                     <h6 class="card-title"><a href="/marketplace/item/{{ $item->slug }}">{{ $item->title }}</a></h6>
-                    <h6 class="card-title text-primary">{{ $item->price + 0 }} {{ __('item.' . $item->currency )}}</h6>
+                    <h6 class="card-title text-primary">{{ $item->crypto_price + 0 }} {{ __('item.' . $item->crypto_currency )}}
+                        <img src="/images/misc/usdt.png" width="18" class="ms-2 pb-1"></h6>
 
                 </div>
                 <!-- Card footer -->

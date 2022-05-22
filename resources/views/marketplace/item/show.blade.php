@@ -1,7 +1,8 @@
 @extends('marketplace.layouts.app')
+@section('title', $item->title)
+@section('description', '')
 @section('content')
     <main>
-
         <!-- =======================
         Page content START -->
         <section class="pt-3 pt-xl-5">
@@ -188,9 +189,17 @@
 
                                         <hr class="mt-1">
 
-                                        <div class="d-flex justify-content-between align-items-center mb-5 mt-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 mt-3">
                                             <!-- Price -->
-                                            <h3 class="fw-bold mb-0 me-2">{{ $item->price +0 }}<span class="h5"> {{ __('item.' . $item->currency )}} </span></h3>
+                                            <span class="fw-bold mb-0 me-2 h5 text-uppercase">{{ $item->crypto_price + 0 }} {{ $item->crypto_currency }}
+                                                <img src="/images/misc/usdt.png" width="24" class="ms-2">
+                                            </span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-5">
+                                            <!-- Price -->
+                                            @if($item->price > 0 || $item->price != null)
+                                            <h6 class="fw-bold mb-0 me-2 text-secondary">{{ $item->price +0 }}<span class="h6 text-secondary"> {{ __('item.' . $item->currency )}} </span></h6>
+                                            @endif
                                         </div>
 
                                         <h5 class="mb-2">{{ __('item.delivery_and_payment')}}</h5>
@@ -254,10 +263,12 @@
                                             <div class="ms-sm-3 mt-2 mt-sm-0">
                                                 <h5 class="mb-0">
                                                     <a href="/marketplace/store/{{ $item->user->slug }}">{{ $item->user->name }}
-                                                        @if ($item->user->verified == 1)<small><i class="fas fa-check-circle text-success"></i></small>@endif
+                                                        @if ($item->user->verified == 1)<i class="bi bi-patch-check-fill text-info"></i>@endif
                                                     </a>
                                                 </h5>
+                                                @if($item->user->phone != null)
                                                 <p class="mb-0 mt-2"><span class="badge bg-white text-dark shadow-sm"><i class="fa fa-mobile-alt text-dark me-2"></i><b> {{ $item->user->phone }}</b></span></p>
+                                                @endif
                                             </div>
 
 

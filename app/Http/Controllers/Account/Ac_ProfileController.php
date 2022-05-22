@@ -60,6 +60,6 @@ class Ac_ProfileController extends Controller
 
         $media->save();
 
-        return redirect()->route('settings')->with('msg', 'data-updated');;
+        return redirect()->route('settings')->with('msg', 'data-updated');
     }
 }

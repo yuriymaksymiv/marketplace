@@ -47,16 +47,16 @@
                     <li class="list-inline-item dropdown me-4">
                         @if ( Config::get('app.locale') == 'en')
                             <a class="nav-link text-white dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EN</a>
-                        @elseif ( Config::get('app.locale') == 'ru' )
-                            <a class="nav-link text-white dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RU</a>
+{{--                        @elseif ( Config::get('app.locale') == 'ru' )--}}
+{{--                            <a class="nav-link text-white dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RU</a>--}}
                         @elseif ( Config::get('app.locale') == 'uk' )
                             <a class="nav-link text-white dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">UA</a>
                         @endif
                         <ul class="dropdown-menu" aria-labelledby="accounntMenu">
 
                             <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}"><img src="/images/language/en.png" width="22"><span class="ms-2 text-dark">English</span></a></li>
-                            <li> <hr class="dropdown-divider"></li>
-                            <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}"><img src="/images/language/ru.png" width="22"><span class="ms-2 text-dark">Русский</span></a></li>
+{{--                            <li> <hr class="dropdown-divider"></li>--}}
+{{--                            <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}"><img src="/images/language/ru.png" width="22"><span class="ms-2 text-dark">Русский</span></a></li>--}}
                             <li> <hr class="dropdown-divider"></li>
                             <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'uk']) }}"><img src="/images/language/ua.png" width="22"><span class="ms-2 text-dark">Українська</span></a></li>
                         </ul>
@@ -83,6 +83,10 @@
                             <div class="list-group list-group-borderless ms-4 p-3 p-md-4">
                                 <a class="list-group-item" href="/docs">{{ __('doc.project_overview') }}</a>
                                 <a class="list-group-item" href="/docs/roadmap">{{ __('doc.roadmap') }}</a>
+
+                                <b class="text-dark text-uppercase mt-3 mb-2">INS Token</b>
+                                <a class="list-group-item" href="/docs/token-sale">Token Sale</a>
+
                                 <b class="text-dark text-uppercase mt-3 mb-2">{{ __('doc.education_hub') }}</b>
                                 <a class="list-group-item" href="/docs/binance">{{ __('doc.how_to_register_on_binance') }}</a>
 

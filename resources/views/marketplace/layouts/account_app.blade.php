@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>Inspiga | MarketPlace</title>
 
@@ -37,6 +37,7 @@
 
         gtag('config', 'G-8H3WRRPMWY');
     </script>
+    {!! htmlScriptTagJsApi() !!}
 
 </head>
 
@@ -124,6 +125,7 @@
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
                                         <a class="list-group-item {{ Request::is( 'account/item*') ? 'active' : '' }}" href="/account/item"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>{{ __('general.my_items')}}</a>
+                                        <a class="list-group-item {{ Request::is( 'account/airdrop*') ? 'active' : '' }}" href="/account/airdrop"><i class="bi bi-coin me-2"></i></i>{{ __('general.airdrop')}}</a>
                                         <a class="list-group-item {{ Request::is( 'account/settings*') ? 'active' : '' }}" href="/account/settings"><i class="bi bi-gear fa-fw me-2"></i>{{ __('general.settings')}}</a>
                                         <a class="list-group-item text-danger bg-danger-soft-hover" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt fa-fw me-2"></i>{{ __('general.log_out')}}
@@ -159,11 +161,13 @@
 <script src="{{asset('assets/vendor/tiny-slider/tiny-slider.js')}}"></script>
 <script src="{{asset('assets/vendor/glightbox/js/glightbox.js')}}"></script>
 <script src="{{asset('assets/vendor/purecounterjs/dist/purecounter_vanilla.js')}}"></script>
-<script src="{{asset('assets/vendor/choices/js/choices.min.js')}}"></script>
+{{--<script src="{{asset('assets/vendor/choices/js/choices.min.js')}}"></script>--}}
 <script src="{{asset('assets/vendor/quill/js/quill.min.js')}}"></script>
 
 {{--<!-- Template Functions -->--}}
 <script src="{{asset('assets/js/functions.js')}}"></script>
+
+
 @stack('scripts')
 </body>
 </html>

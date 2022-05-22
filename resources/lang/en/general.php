@@ -13,6 +13,7 @@ return [
     'my_profile' => 'Profile',
     'my_items' => 'My items',
     'items' => 'Items',
+    'airdrop' => 'Airdrop',
     'settings' => 'Settings',
     'available' => 'Available',
     'log_out' => 'Log out',

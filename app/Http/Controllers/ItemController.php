@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Item;
-use App\Models\Region;
+use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -44,7 +44,7 @@ class ItemController extends Controller
 
     public function region($slug) {
 
-        $region_id = Region::whereSlug($slug)->value('id');
+        $region_id = State::whereSlug($slug)->value('id');
         $items = Item::whereRegion_id($region_id)->whereCheck('1')->wherePublished('1')->paginate(8);
 
         if (count($items) > 0) {

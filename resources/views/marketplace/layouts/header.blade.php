@@ -14,11 +14,6 @@
                                 <small><i class="fas fa-globe me-2"></i></small>
                                 <span class="small">EN</span>
                             </a>
-                        @elseif ( Config::get('app.locale') == 'ru' )
-                            <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'ru']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <small><i class="fas fa-globe me-2"></i></small>
-                                <span class="small">RU</span>
-                            </a>
                         @elseif ( Config::get('app.locale') == 'uk' )
                             <a class="nav-link dropdown-toggle" href="{{ route('locale', ['locale' => 'uk']) }}" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <small><i class="fas fa-globe me-2"></i></small>
@@ -27,7 +22,6 @@
                         @endif
                         <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
                             <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'en']) }}"><img class="fa-fw me-2" src="/images/language/en.png" alt="">English</a></li>
-                            <li> <a class="dropdown-item" href="{{ route('locale', ['locale' => 'ru']) }}"><img class="fa-fw me-2" src="/images/language/ru.png" alt="">Русский</a></li>
                             <li> <a class="dropdown-item me-3" href="{{ route('locale', ['locale' => 'uk']) }}"><img class="fa-fw me-2" src="/images/language/ua.png" alt="">Українська</a></li>
                         </ul>
 
@@ -70,16 +64,14 @@
                     <li class="nav-item dropdown dropdown-menu-shadow-stacked">
                         <a class="nav-link bg-primary bg-opacity-10 rounded-3 text-primary px-3 py-3 py-xl-0" href="#" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-ui-radios-grid me-2"></i><span>{{ __('general.category')}}</span></a>
                         <ul class="dropdown-menu" aria-labelledby="categoryMenu">
-
+                            <li> <a class="dropdown-item" href="/marketplace/category/crypto">{{ __('category.crypto')}}</a> </li>
                             <!-- Dropdown submenu -->
                             <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="/marketplace/category/food_delivery">{{ __('category.food_delivery')}}</a>
+                                <a class="dropdown-item dropdown-toggle" href="/">{{ __('category.homeware')}}</a>
                                 <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                    <li> <a class="dropdown-item" href="/marketplace/category/food_delivery">{{ __('category.sushi')}}</a> </li>
+                                    <li> <a class="dropdown-item" href="/marketplace/category/furniture">{{ __('category.furniture')}}</a> </li>
                                 </ul>
                             </li>
-                            <li> <a class="dropdown-item" href="/marketplace/category/furniture">{{ __('category.furniture')}}</a> </li>
-                            <li> <a class="dropdown-item" href="/marketplace/category/service">{{ __('category.service')}}</a> </li>
                         </ul>
                     </li>
                 </ul>
@@ -119,6 +111,9 @@
             </div>
             <!-- Main navbar END -->
 
+            <div class="navbar-nav d-none d-lg-inline-block me-2">
+                <a href="https://pos.inspiga.com" target="_blank" class="btn btn-danger-soft mb-0">CRM</a>
+            </div>
             <div class="navbar-nav d-none d-lg-inline-block me-0">
                 <a href="/marketplace" class="btn btn-warning mb-0">{{ __('general.marketplace')}}</a>
             </div>

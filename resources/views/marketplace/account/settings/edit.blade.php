@@ -46,7 +46,7 @@
                     <div class="col-md-5">
                         <label class="form-label">{{ __('profile.name')}}<span class="text-danger"> *</span></label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') ?? auth()->user()->name }}" required autocomplete="name" autofocus>
+                            <input type="text" class="form-control" name="name" value="{{ old('name') ?? auth()->user()->name }}" required autocomplete="name">
                         </div>
                     </div>
                 <!-- End Title -->
@@ -54,7 +54,7 @@
                 <div class="col-md-3">
                     <label class="form-label">{{ __('profile.phone')}}<span class="text-danger"> *</span></label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="phone" value="{{ old('phone') ?? auth()->user()->phone }}" required autocomplete="phone" autofocus>
+                        <input type="text" class="form-control" name="phone" value="{{ old('phone') ?? auth()->user()->phone }}" required autocomplete="phone">
                     </div>
                 </div>
                 <!-- End Phone -->
@@ -62,7 +62,7 @@
                 <div class="col-md-4">
                     <label class="form-label">E-mail<span class="text-danger"> *</span></label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="email" value="{{ old('email') ?? auth()->user()->email }}" required autocomplete="email" autofocus>
+                        <input type="text" class="form-control" name="email" value="{{ old('email') ?? auth()->user()->email }}" required autocomplete="email">
                     </div>
                 </div>
                 <!-- End Phone -->
@@ -100,7 +100,7 @@
                                             </span>
                                 </label>
                                     <!-- Upload button -->
-                                <input class="form-control" type="file" id="formFile" name="image" autocomplete="image" required autofocus>
+                                <input class="form-control" type="file" id="formFile" name="image" autocomplete="image" required>
                                 </div>
                             </div>
                         </div>
@@ -133,31 +133,31 @@
                         <!-- Site username -->
                         <div class="mb-3">
                             <label class="form-label"><i class="fas fa-globe text-dark me-2"></i>{{ __('profile.enter_site') }}</label>
-                            <input class="form-control" type="text" name="site" value="{{ old('site') ?? auth()->user()->site }}" autocomplete="site" autofocus>
+                            <input class="form-control" type="text" name="site" value="{{ old('site') ?? auth()->user()->site }}" autocomplete="site">
                         </div>
 
                         <!-- Instagram username -->
                         <div class="mb-3">
                             <label class="form-label"><i class="fab fa-instagram text-instagram-gradient me-2"></i>{{ __('profile.enter_instagram_username') }}</label>
-                            <input class="form-control" type="text" name="instagram" value="{{ old('instagram') ?? auth()->user()->instagram }}" autocomplete="instagram" autofocus>
+                            <input class="form-control" type="text" name="instagram" value="{{ old('instagram') ?? auth()->user()->instagram }}" autocomplete="instagram">
                         </div>
 
                         <!-- Telegram username -->
                         <div class="mb-3">
                             <label class="form-label"><i class="fab fa-telegram text-twitter me-2"></i>{{ __('profile.enter_telegram_username') }}</label>
-                            <input class="form-control" type="text" name="telegram" value="{{ old('telegram') ?? auth()->user()->telegram }}" autocomplete="telegram" autofocus>
+                            <input class="form-control" type="text" name="telegram" value="{{ old('telegram') ?? auth()->user()->telegram }}" autocomplete="telegram">
                         </div>
 
                         <!-- Facebook username -->
                         <div class="mb-3">
                             <label class="form-label"><i class="bi bi-facebook text-facebook me-2"></i>{{ __('profile.enter_facebook_username') }}</label>
-                            <input class="form-control" type="text" name="facebook" value="{{ old('facebook') ?? auth()->user()->facebook }}" autocomplete="facebook" autofocus>
+                            <input class="form-control" type="text" name="facebook" value="{{ old('facebook') ?? auth()->user()->facebook }}" autocomplete="facebook">
                         </div>
 
                         <!-- Twitter username -->
                         <div class="mb-3">
                             <label class="form-label"><i class="bi bi-twitter text-twitter me-2"></i>{{ __('profile.enter_twitter_username') }}</label>
-                            <input class="form-control" type="text" name="twitter" value="{{ old('twitter') ?? auth()->user()->twitter }}" autocomplete="twitter" autofocus>
+                            <input class="form-control" type="text" name="twitter" value="{{ old('twitter') ?? auth()->user()->twitter }}" autocomplete="twitter">
                         </div>
 
 
@@ -191,7 +191,7 @@
                         <!-- Current password -->
                         <div class="mb-3">
                             <label class="form-label">Current password</label>
-                            <input class="form-control @error('current_password', 'updatePassword') is-invalid @enderror" type="password" name="current_password" required autofocus placeholder="Enter current password">
+                            <input class="form-control @error('current_password', 'updatePassword') is-invalid @enderror" type="password" name="current_password" required placeholder="Enter current password">
                             @error('current_password', 'updatePassword')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

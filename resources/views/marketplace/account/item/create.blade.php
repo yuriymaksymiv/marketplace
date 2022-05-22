@@ -23,7 +23,7 @@
                     <!-- Categoty -->
                     <div class="col-md-3">
                         <label class="form-label">{{ __('item.category')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="category_id" required>
+                        <select class="form-select" aria-label=".form-select-sm" name="category_id" required>
                             @forelse($categories as $category)
                                 <option value="{{ $category->id }}">{{ __('category.' . $category->slug )}}</option>
                             @empty
@@ -34,7 +34,7 @@
                     <!-- Type -->
                     <div class="col-md-3">
                         <label class="form-label">{{ __('item.type')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="type" >
+                        <select class="form-select" aria-label=".form-select-sm" name="type" >
                             <option value="product">{{ __('item.product')}}</option>
                             <option value="service">{{ __('item.service')}}</option>
                         </select>
@@ -42,20 +42,16 @@
 
                     <!-- Price -->
                     <div class="col-md-3">
-                        <label class="form-label">{{ __('item.price')}}<span class="text-danger"> *</span></label>
+                        <label class="form-label">{{ __('item.crypto_price')}}<span class="text-danger"> *</span></label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="price" onkeypress="return checkInput(this)" required>
+                            <input type="text" class="form-control" name="crypto_price" onkeypress="return checkInput(this)" required>
                         </div>
                     </div>
 
                     <!-- Currency -->
                     <div class="col-md-3">
-                        <label class="form-label">{{ __('item.currency')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="currency">
-                            <optgroup label="Валюта">
-                                <option value="uah">{{ __('item.uah')}}</option>
-                                <option value="usd">{{ __('item.usd')}}</option>
-                            </optgroup>
+                        <label class="form-label">{{ __('item.crypto_currency')}}<span class="text-danger"> *</span></label>
+                        <select class="form-select" aria-label=".form-select-sm" name="crypto_currency">
                             <optgroup label="Криптовалюта">
                                 <option value="usdt">{{ __('item.usdt')}}</option>
                                 <option value="btc">{{ __('item.btc')}}</option>
@@ -74,7 +70,6 @@
 
                         <!-- Main toolbar -->
                         <div class="bg-body border rounded-bottom h-300px overflow-hidden" id="quilleditor">
-
                         </div>
 
 
@@ -85,34 +80,28 @@
 
                     <!-- Country -->
                     <div class="col-md-4">
-                        <label class="form-label">{{ __('item.country')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="country_id">
+                        <label class="form-label">{{ __('item.country')}}</label>
+                        <select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm" name="country" id="country">
                             <option value="0">{{ __('item.choose_country')}}</option>
-                            @foreach($countries as $country)
-                                <option value="{{ $country->id }}">{{ __('country.' . $country->slug )}}</option>
+                            @foreach($countries as $key => $value)
+                                <option value="{{ $key }}">{{ $value }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <!-- Region -->
+                    <!-- State -->
                     <div class="col-md-4">
-                        <label class="form-label">{{ __('item.region')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="region_id">
-                            <option value="0">{{ __('item.choose_region')}}</option>
-                            @foreach($regions as $region)
-                                <option value="{{ $region->id }}">{{ __('region.' . $region->slug )}}</option>
-                            @endforeach
+                        <label class="form-label">{{ __('item.state')}}</label>
+                        <select class="form-select" aria-label=".form-select-sm" name="state" id="country">
+                            <option value="0">{{ __('item.choose_state')}}</option>
                         </select>
                     </div>
 
                     <!-- City -->
                     <div class="col-md-4">
-                        <label class="form-label">{{ __('item.city')}}<span class="text-danger"> *</span></label>
-                        <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm" name="city_id">
+                        <label class="form-label">{{ __('item.city')}}</label>
+                        <select class="form-select" aria-label=".form-select-sm" name="city" id="state">
                             <option value="0">{{ __('item.choose_city')}}</option>
-                            @foreach($cities as $city)
-                                <option value="{{ $city->id }}">{{ __('city.' . $city->slug )}}</option>
-                            @endforeach
                         </select>
                     </div>
 
@@ -280,15 +269,6 @@
         });
     </script>
     <script>
-        // Textarea
-        var quill = new Quill('#quilleditor', {
-            theme: 'hide'
-        });
-        quill.on('text-change', function(delta, oldDelta, source) {
-            document.getElementById("quill_html").value = quill.root.innerHTML;
-        });
-
-        // Ввід тільки цифри
         function checkInput (elementRef) {
 
             var keyCodeEntered = (event.which) ? event.which : (window.event.keyCode) ? window.event.keyCode : -1;
@@ -307,4 +287,49 @@
             return false;
         }
     </script>
+    <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('select[name="country"]').on('change',function(){
+                var country_id= $(this).val();
+                if (country_id) {
+                    $.ajax({
+                        url: "{{url('/getStates/')}}/"+country_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data){
+                            console.log(data);
+                            $('select[name="state"]').empty();
+                            $.each(data,function(key,value){
+                                $('select[name="state"]').append('<option value="'+key+'">'+value+'</option>');
+                            });
+                        }
+                    });
+                }else {
+                    $('select[name="state"]').empty();
+                }
+            });
+            $('select[name="state"]').on('change',function(){
+                var state_id= $(this).val();
+                if (state_id) {
+                    $.ajax({
+                        url: "{{url('/getCities/')}}/"+state_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data){
+                            console.log(data);
+                            $('select[name="city"]').empty();
+                            $.each(data,function(key,value){
+                                $('select[name="city"]').append('<option value="'+key+'">'+value+'</option>');
+                            });
+                        }
+                    });
+                }else {
+                    $('select[name="city"]').empty();
+                }
+            });
+        });
+    </script>
+
+
 @endpush

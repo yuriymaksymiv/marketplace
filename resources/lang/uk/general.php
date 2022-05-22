@@ -12,6 +12,7 @@ return [
     'my_profile' => 'Профіль',
     'my_items' => 'Мої товари',
     'items' => 'Товарів',
+    'airdrop' => 'Airdrop',
     'settings' => 'Налаштування',
     'available' => 'Доступно',
     'log_out' => 'Вийти',

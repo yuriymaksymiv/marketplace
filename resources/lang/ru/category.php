@@ -4,13 +4,10 @@ return [
 
     'no_category' => 'Категория отсутствует',
 
-    'food_delivery' => 'Доставка еды',
-        'sushi' => 'Суши',
+    'crypto' => 'Крипто',
 
-    'service' => 'Услуги',
-    'electronics' => 'Техника',
-    'clothing' => 'Одежда',
-    'furniture' => 'Мебель',
-    'vacation' => 'Отдых',
+    'homeware' => 'Товары для дома',
+        'furniture' => 'Мебель',
+            'chair' => 'Стулья',
 
 ];

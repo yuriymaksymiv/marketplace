@@ -7976,6 +7976,10 @@ textarea.form-control-lg {
     border-color: #0cbc87 !important;
 }
 
+.border-green {
+    border-color: #8DC252 !important;
+}
+
 .border-info {
     border-color: #17a2b8 !important;
 }
@@ -9417,6 +9421,11 @@ textarea.form-control-lg {
 .text-success {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-green {
+    --bs-text-opacity: 1;
+    color: #8DC252 !important;
 }
 
 .text-info {

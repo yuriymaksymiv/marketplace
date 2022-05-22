@@ -2,7 +2,7 @@
 
 return [
 
-    'choose_region' => 'Виберіть область',
+    'choose_state' => 'Виберіть область',
 
     'lvivska' => 'Львівська',
     'kyivska' => 'Київська',

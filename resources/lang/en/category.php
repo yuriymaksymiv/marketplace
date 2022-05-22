@@ -4,13 +4,10 @@ return [
 
     'no_category' => 'No category',
 
-    'food_delivery' => 'Food delivery',
-        'sushi' => ' Sushi',
+    'crypto' => 'Crypto',
 
-    'service' => 'Services',
-    'electronics' => 'Electronics',
-    'clothing' => 'Clothing',
-    'furniture' => 'Furniture',
-    'vacation' => 'Vacation',
+    'homeware' => 'Homeware',
+        'furniture' => 'Furniture',
+            'chairs' => 'Chairs',
 
 ];

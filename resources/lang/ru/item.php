@@ -8,6 +8,8 @@ return [
     'title' => 'Название',
     'category' => 'Категория',
     'type' => 'Тип',
+    'crypto_price' => 'Цена',
+    'crypto_currency' => 'Криптовалюта',
     'price' => 'Цена',
     'currency' => 'Валюта',
     'product' => 'Товар',
@@ -21,7 +23,7 @@ return [
     'choose_category' => 'Выберите категорию',
     'choose_type' => 'Выберите тип',
     'choose_country' => 'Выберите страну',
-    'choose_region' => 'Выберите область',
+    'choose_state' => 'Выберите область',
     'choose_city' => 'Выберите город',
     'all_items' => 'Все объявления',
 

@@ -32,7 +32,6 @@
 </head>
 
 <body>
-<div id="wrapper">
 
 @yield('content')
 <!-- ========== END MAIN CONTENT ========== -->

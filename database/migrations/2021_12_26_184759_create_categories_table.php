@@ -18,6 +18,9 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent_id')->default(0);
             $table->integer('sort')->default(0);
             $table->string('slug');
+            $table->string('en');
+            $table->string('ru');
+            $table->string('uk');
             $table->tinyInteger('published')->default(1);
         });
     }

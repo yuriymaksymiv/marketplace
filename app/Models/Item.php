@@ -26,9 +26,9 @@ class Item extends Model
         return $this->belongsTo('App\Models\Country', 'country_id', 'id');
     }
 
-    public function region()
+    public function state()
     {
-        return $this->belongsTo('App\Models\Region', 'region_id', 'id');
+        return $this->belongsTo('App\Models\State', 'state_id', 'id');
     }
 
     public function city()

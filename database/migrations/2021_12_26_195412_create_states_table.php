@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegionsTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateRegionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('regions', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->string('en');
+            $table->string('ru');
+            $table->string('uk');
             $table->unsignedInteger('country_id');
             $table->integer('sort')->default(0);
         });
@@ -23,6 +26,6 @@ class CreateRegionsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('states');
     }
 }

@@ -38,11 +38,11 @@
                                 <div class="d-flex align-items-center">
                                     <!-- Image -->
                                     <div class="w-70px">
-                                        <img src="{{ $item->image }}" class="rounded" alt="">
+                                        <a href="/marketplace/item/{{ $item->slug }}"><img src="{{ $item->image }}" class="rounded" alt=""></a>
                                     </div>
                                     <div class="mb-0 ms-2">
                                         <!-- Title -->
-                                        <h6><a href="#">{{ $item->title }}</a></h6>
+                                        <h6><a href="/marketplace/item/{{ $item->slug }}">{{ $item->title }}</a></h6>
                                         <!-- Info -->
                                         <div class="d-sm-flex">
                                             <p class="h6 fw-light mb-0 small me-3"><i class="fas fa-eye text-secondary me-2"></i>{{ $item->views }}</p>
@@ -70,7 +70,7 @@
                                 @endif
                             </td>
                             <!-- Price item -->
-                            <td>{{ $item->price + 0 }} <span class="small"> {{ __('item.' . $item->currency) }}</span></td>
+                            <td>{{ $item->crypto_price + 0 }} <span class="small"> {{ __('item.' . $item->crypto_currency) }}</span></td>
                             <!-- Action item -->
                             <td>
                                 <div class="d-flex">
